@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>নিবন্ধন - DriveNest</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary: #1a73e8;
+            --secondary: #34a853;
+            --accent: #fbbc04;
+            --dark: #202124;
+            --light: #f8f9fa;
+            --gray: #5f6368;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Kalpurush', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .running-text {
+            background-color: var(--accent);
+            color: var(--dark);
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-left: 15px;
+            white-space: nowrap;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .running-text span {
+            display: inline-block;
+            animation: running-text 15s linear infinite;
+        }
+        
+        @keyframes running-text {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover, nav ul li a.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #0d5bb9;
+            transform: translateY(-2px);
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 32px;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-card i {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .feature-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        /* Team Section */
+        .team {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-member {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+        
+        .team-member img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+        
+        .member-info {
+            padding: 20px;
+        }
+        
+        .member-info h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .member-info p {
+            color: var(--gray);
+            font-style: italic;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--light);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .service-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .service-card:hover .service-img img {
+            transform: scale(1.1);
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .service-content ul {
+            list-style-type: none;
+            margin-left: 0;
+        }
+        
+        .service-content ul li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .service-content ul li:before {
+            content: "✓";
+            color: var(--secondary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Flowchart Section */
+        .flowchart {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .flowchart-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .flow-step {
+            text-align: center;
+            margin: 20px;
+            max-width: 200px;
+        }
+        
+        .flow-step .step-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 30px;
+        }
+        
+        .flow-step h4 {
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .flow-arrow {
+            font-size: 30px;
+            color: var(--gray);
+            margin: 0 10px;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .contact-item i {
+            font-size: 20px;
+            color: var(--primary);
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+        
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .contact-form input, 
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border 0.3s ease;
+        }
+        
+        .contact-form input:focus, 
+        .contact-form textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+        
+        /* Registration Page Styles */
+        .registration-page {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+            min-height: 100vh;
+        }
+        
+        .registration-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .form-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--dark);
+        }
+        
+        .form-title h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .user-type-selector {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .user-type-btn {
+            padding: 10px 20px;
+            background: none;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--gray);
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .user-type-btn.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+        
+        .registration-form {
+            display: none;
+        }
+        
+        .registration-form.active {
+            display: block;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border 0.3s ease;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background-color: #0d5bb9;
+        }
+        
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .login-link a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        /* Login Page Styles */
+        .login-page {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+            min-height: 100vh;
+        }
+        
+        .login-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .login-type-selector {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .login-type-btn {
+            padding: 10px 20px;
+            background: none;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--gray);
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .login-type-btn.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .header-top {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .running-text {
+                margin: 15px 0;
+            }
+            
+            .flow-arrow {
+                transform: rotate(90deg);
+                margin: 10px 0;
+            }
+            
+            .flowchart-container {
+                flex-direction: column;
+            }
+            
+            .about-content, .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: white;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 15px;
+                border-radius: 0;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .registration-container, .login-container {
+                padding: 20px;
+            }
+            
+            .feature-card, .team-member, .service-card {
+                padding: 20px;
+            }
+            
+            .user-type-selector, .login-type-selector {
+                flex-direction: column;
+            }
+            
+            .user-type-btn, .login-type-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/8801853041394" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <img src="https://i.ibb.co.com/wh1qgNqn/Drive-Nest-Logo-Copy-removebg-preview.png" alt="DriveNest Logo">
+                    <div class="logo-text">DriveNest</div>
+                </div>
+                <div class="running-text">
+                    <span>আমাদের ওয়েবসাইটটি বর্তমানে পরীক্ষামূলকভাবে চালু রয়েছে...</span>
+                </div>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">হোম</a></li>
+                        <li><a href="about.html">আমাদের সম্পর্কে</a></li>
+                        <li><a href="services.html">সেবাসমূহ</a></li>
+                        <li><a href="registration.html" class="active">নিবন্ধন</a></li>
+                        <li><a href="contact.html">যোগাযোগ</a></li>
+                        <li><a href="login.html">লগইন</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Registration Section -->
+    <section class="registration-page">
+        <div class="container">
+            <div class="registration-container">
+                <div class="form-title">
+                    <h2>নিবন্ধন করুন</h2>
+                    <p>DriveNest পরিবারের সাথে যুক্ত হোন</p>
+                </div>
+                
+                <div class="user-type-selector">
+                    <button class="user-type-btn active" data-type="passenger">যাত্রী</button>
+                    <button class="user-type-btn" data-type="driver">ড্রাইভার</button>
+                    <button class="user-type-btn" data-type="owner">গাড়ি মালিক</button>
+                    <button class="user-type-btn" data-type="driver-only">শুধুমাত্র ড্রাইভার</button>
+                </div>
+                
+                <!-- Passenger Registration Form -->
+                <form id="passenger-form" class="registration-form active">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="p-name">পূর্ণ নাম *</label>
+                            <input type="text" id="p-name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="p-phone">মোবাইল নম্বর *</label>
+                            <input type="tel" id="p-phone" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="p-email">ইমেইল ঠিকানা</label>
+                        <input type="email" id="p-email" class="form-control">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="p-password">পাসওয়ার্ড *</label>
+                            <input type="password" id="p-password" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="p-confirm-password">পাসওয়ার্ড নিশ্চিত করুন *</label>
+                            <input type="password" id="p-confirm-password" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="p-address">ঠিকানা *</label>
+                        <textarea id="p-address" class="form-control" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="p-nid">জাতীয় পরিচয়পত্র নম্বর</label>
+                            <input type="text" id="p-nid" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="p-dob">জন্ম তারিখ</label>
+                            <input type="date" id="p-dob" class="form-control">
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">নিবন্ধন সম্পন্ন করুন</button>
+                    
+                    <div class="login-link">
+                        <p>ইতিমধ্যে অ্যাকাউন্ট আছে? <a href="login.html">লগইন করুন</a></p>
+                    </div>
+                </form>
+                
+                <!-- Driver Registration Form -->
+                <form id="driver-form" class="registration-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="d-name">পূর্ণ নাম *</label>
+                            <input type="text" id="d-name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="d-phone">মোবাইল নম্বর *</label>
+                            <input type="tel" id="d-phone" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="d-email">ইমেইল ঠিকানা</label>
+                        <input type="email" id="d-email" class="form-control">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="d-password">পাসওয়ার্ড *</label>
+                            <input type="password" id="d-password" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="d-confirm-password">পাসওয়ার্ড নিশ্চিত করুন *</label>
+                            <input type="password" id="d-confirm-password" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="d-address">ঠিকানা *</label>
+                        <textarea id="d-address" class="form-control" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="d-nid">জাতীয় পরিচয়পত্র নম্বর *</label>
+                            <input type="text" id="d-nid" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="d-dob">জন্ম তারিখ *</label>
+                            <input type="date" id="d-dob" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="d-license">ড্রাইভিং লাইসেন্স নম্বর *</label>
+                            <input type="text" id="d-license" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="d-experience">অভিজ্ঞতা (বছর) *</label>
+                            <input type="number" id="d-experience" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="d-license-photo">ড্রাইভিং লাইসেন্সের ছবি *</label>
+                        <input type="file" id="d-license-photo" class="form-control" accept="image/*" required>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">নিবন্ধন সম্পন্ন করুন</button>
+                    
+                    <div class="login-link">
+                        <p>ইতিমধ্যে অ্যাকাউন্ট আছে? <a href="login.html">লগইন করুন</a></p>
+                    </div>
+                </form>
+                
+                <!-- Vehicle Owner Registration Form -->
+                <form id="owner-form" class="registration-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="o-name">পূর্ণ নাম *</label>
+                            <input type="text" id="o-name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="o-phone">মোবাইল নম্বর *</label>
+                            <input type="tel" id="o-phone" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="o-email">ইমেইল ঠিকানা</label>
+                        <input type="email" id="o-email" class="form-control">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="o-password">পাসওয়ার্ড *</label>
+                            <input type="password" id="o-password" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="o-confirm-password">পাসওয়ার্ড নিশ্চিত করুন *</label>
+                            <input type="password" id="o-confirm-password" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="o-address">ঠিকানা *</label>
+                        <textarea id="o-address" class="form-control" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="o-nid">জাতীয় পরিচয়পত্র নম্বর *</label>
+                            <input type="text" id="o-nid" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="o-tin">টিন নম্বর</label>
+                            <input type="text" id="o-tin" class="form-control">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="o-vehicle-details">গাড়ির বিবরণ *</label>
+                        <textarea id="o-vehicle-details" class="form-control" rows="3" placeholder="গাড়ির মডেল, রেজিস্ট্রেশন নম্বর, সিট ক্যাপাসিটি ইত্যাদি" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="o-documents">গাড়ির কাগজপত্র *</label>
+                        <input type="file" id="o-documents" class="form-control" accept=".pdf,.jpg,.png" multiple required>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">নিবন্ধন সম্পন্ন করুন</button>
+                    
+                    <div class="login-link">
+                        <p>ইতিমধ্যে অ্যাকাউন্ট আছে? <a href="login.html">লগইন করুন</a></p>
+                    </div>
+                </form>
+                
+                <!-- Driver Only Registration Form -->
+                <form id="driver-only-form" class="registration-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="do-name">পূর্ণ নাম *</label>
+                            <input type="text" id="do-name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="do-phone">মোবাইল নম্বর *</label>
+                            <input type="tel" id="do-phone" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="do-email">ইমেইল ঠিকানা</label>
+                        <input type="email" id="do-email" class="form-control">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="do-password">পাসওয়ার্ড *</label>
+                            <input type="password" id="do-password" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="do-confirm-password">পাসওয়ার্ড নিশ্চিত করুন *</label>
+                            <input type="password" id="do-confirm-password" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="do-address">ঠিকানা *</label>
+                        <textarea id="do-address" class="form-control" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="do-nid">জাতীয় পরিচয়পত্র নম্বর *</label>
+                            <input type="text" id="do-nid" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="do-dob">জন্ম তারিখ *</label>
+                            <input type="date" id="do-dob" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="do-license">ড্রাইভিং লাইসেন্স নম্বর *</label>
+                            <input type="text" id="do-license" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="do-experience">অভিজ্ঞতা (বছর) *</label>
+                            <input type="number" id="do-experience" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="do-preferences">পছন্দের কাজের ধরন *</label>
+                        <select id="do-preferences" class="form-control" multiple>
+                            <option value="full-time">ফুল-টাইম</option>
+                            <option value="part-time">পার্ট-টাইম</option>
+                            <option value="weekend">শুধুমাত্র সপ্তাহান্তে</option>
+                            <option value="night">শুধুমাত্র রাত</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="do-license-photo">ড্রাইভিং লাইসেন্সের ছবি *</label>
+                        <input type="file" id="do-license-photo" class="form-control" accept="image/*" required>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">নিবন্ধন সম্পন্ন করুন</button>
+                    
+                    <div class="login-link">
+                        <p>ইতিমধ্যে অ্যাকাউন্ট আছে? <a href="login.html">লগইন করুন</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>DriveNest</h3>
+                    <p>বাংলাদেশের প্রথম সম্পূর্ণ স্বচ্ছ ও সামাজিক দায়বদ্ধতা সম্পন্ন রাইড-শেয়ারিং প্ল্যাটফর্ম।</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>দ্রুত লিংক</h3>
+                    <ul>
+                        <li><a href="index.html">হোম</a></li>
+                        <li><a href="about.html">আমাদের সম্পর্কে</a></li>
+                        <li><a href="services.html">সেবাসমূহ</a></li>
+                        <li><a href="registration.html">নিবন্ধন</a></li>
+                        <li><a href="contact.html">যোগাযোগ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>সেবাসমূহ</h3>
+                    <ul>
+                        <li><a href="services.html">রাইড শেয়ারিং</a></li>
+                        <li><a href="services.html">এডভান্স বুকিং</a></li>
+                        <li><a href="services.html">ক cooperate রাইড</a></li>
+                        <li><a href="services.html">বাণিজ্যিক রাইড</a></li>
+                        <li><a href="services.html">ইভেন্ট ট্রান্সপোর্ট</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>যোগাযোগ</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> উত্তরা, ঢাকা, বাংলাদেশ</li>
+                        <li><i class="fas fa-phone"></i> +88 01853041394</li>
+                        <li><i class="fas fa-envelope"></i> info@drivenest.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 DriveNest. সকল অধিকার সংরক্ষিত।</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+
+        // User Type Selection
+        const userTypeBtns = document.querySelectorAll('.user-type-btn');
+        const registrationForms = document.querySelectorAll('.registration-form');
+        
+        userTypeBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons and forms
+                userTypeBtns.forEach(b => b.classList.remove('active'));
+                registrationForms.forEach(form => form.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Show corresponding form
+                const formType = this.getAttribute('data-type');
+                document.getElementById(`${formType}-form`).classList.add('active');
+            });
+        });
+
+        // Form Submission
+        const forms = document.querySelectorAll('form');
+        forms.forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('নিবন্ধন সফলভাবে জমা হয়েছে! অ্যাডমিন যাচাইয়ের পর আপনার অ্যাকাউন্ট সক্রিয় হবে।');
+                this.reset();
+            });
+        });
+    </script>
+</body>
+</html>
